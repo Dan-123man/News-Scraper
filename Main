@@ -1,5 +1,5 @@
 git init
-git add scraper.py index.html requirements.txt .gitignore
+git add scraper.py DISPLAY.html requirements.txt .gitignore
 git commit -m "Initial commit"
 git branch -M main
 git remote add origin https://github.com/Dan-123man/News-Scraper.git
