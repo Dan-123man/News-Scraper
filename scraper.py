@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import csv
 import time
 from datetime import datetime
-import shutil
+
 
 key_word = "trump"
 sections = [
@@ -98,10 +98,6 @@ with sync_playwright() as p:
 
 
     browser.close()
-try:
-    shutil.move(filename, r"C:\Users\Daniel\Downloads")
-except:
-    shutil.copy(filename, r"C:\Users\Daniel\Downloads")
 
 
 print(f"Done. Headlines saved to {filename}")
