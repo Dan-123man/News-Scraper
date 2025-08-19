@@ -26,12 +26,11 @@ jobs:
         with:
           python-version: "3.11"
           
-      - name: Enable Caching
+      
       - uses: actions/cache@v3
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright
-        
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
