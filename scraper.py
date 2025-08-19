@@ -3,10 +3,10 @@ from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 import csv
 import time
-from datetime import datetime
 
 
-key_word = "trump"
+
+key_word = ""
 sections = [
     "https://www.9news.com.au/",
     "https://www.theguardian.com/world",
@@ -14,9 +14,9 @@ sections = [
     "https://www.skynews.com.au/"
 
 ]
-date = datetime.now().strftime('%Y-%m-%d')
 
-filename = "news_headlines_" + date + ".csv"
+
+filename = "news_headlines.csv"
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
@@ -33,8 +33,6 @@ with sync_playwright() as p:
             page.goto(section_url, timeout=60000, wait_until="domcontentloaded")
             time.sleep(3)  # wait for JavaScript content
             html = page.content()
-            with open("debug.html", "w", encoding="utf-8") as f:
-                f.write(html)
             soup = BeautifulSoup(html, "html.parser")
 
             if "9news" in section_url:
