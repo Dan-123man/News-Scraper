@@ -127,6 +127,18 @@ a:hover { text-decoration: underline; }
 </head>
 <body>
 <h1>Scraped News</h1>
+<input type="text" id="searchBox" placeholder="Search headlines...">
+<script>
+    document.getElementById("searchBox").addEventListener("keyup", function() {
+        let filter = this.value.toLowerCase();
+        let rows = document.querySelectorAll("#newsTable tr");
+
+        for (let i = 1; i < rows.length; i++) { // skip header row
+            let text = rows[i].innerText.toLowerCase();
+            rows[i].style.display = text.includes(filter) ? "" : "none";
+        }
+    });
+</script>
 <table>
 """
 
