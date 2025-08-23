@@ -139,7 +139,7 @@ a:hover { text-decoration: underline; }
         }
     });
 </script>
-<table>
+<table id="NewsTable">
 """
 
 for i, col in enumerate(header):
